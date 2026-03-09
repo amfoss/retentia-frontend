@@ -39,7 +39,10 @@
   --color-primary-light: var(--primary-light);
   --color-secondary: var(--secondary);
   --color-border: var(--border);
-
+  --color-marked-for-review: var(--marked-for-review);
+  --color-answered: var(--answered);
+  --color-not-answered: var(--not-answered);
+  --color-not-visited: var(--not-visited);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

@@ -21,7 +21,7 @@ export default function Retentiaquiz() {
   const answeredCount = Object.keys(confirmedAnswers).length;
 
   const options = [
-    { id: "A", text: "Solar Power" },
+    { id: "A", text: "Solarpx-2 sm:px-3 md:px-4 py-1 sm:py-3 border-2 rounded-md bg-background flex items-center gap-1 text-sm sm:text-basepx-2 sm:px-3 md:px-4 py-1 sm:py-3 border-2 rounded-md bg-background flex items-center gap-1 text-sm sm:text-basepx-2 sm:px-3 md:px-4 py-1 sm:py-3 border-2 rounded-md bg-background flex items-center gap-1 text-sm sm:text-basepx-2 sm:px-3 md:px-4 py-1 sm:py-3 border-2 rounded-md bg-background flex items-center gap-1 text-sm sm:text-base" },
     { id: "B", text: "Wind Power" },
     { id: "C", text: "Natural Gas" },
     { id: "D", text: "Hydroelectric Power" },
@@ -114,12 +114,7 @@ export default function Retentiaquiz() {
 
   return (
 
-    <main className="min-h-screen flex justify-center bg-background py-10 sm:px-5 md:px-10 lg:px-20 xl:px-40">
-
-      <Card
-        variant="primary"
-        className="w-full h-full flex flex-col md:px-5 lg:px-10 xl:px-40"
-      >
+    <main className="min-h-screen flex flex-col justify-center bg-background py-10 px-80">
 
         <div className="grid grid-cols-3 items-center mt-3">
 
@@ -156,15 +151,19 @@ export default function Retentiaquiz() {
           markedReview={markedReview}
           skipped={skipped}
         />
+      <Card
+        variant="primary"
+        className="w-full  max-h-212.5 px-10"
+      >
+
 
         <Card
           variant="secondary"
-          className="w-full h-60 mb-15 flex items-center justify-center overflow-y-auto"
+          className="w-full mb-15 flex items-center justify-center "
         >
-          <p className="text-3xl font-bold leading-relaxed p-5">
+          <p className="text-3xl font-bold leading-relaxed p-15">
             Which of the following energy sources cannot be
             replenished naturally on a human timescale,
-            making it an example of a non-renewable resource?
           </p>
         </Card>
 
@@ -204,7 +203,10 @@ export default function Retentiaquiz() {
 
         </div>
 
-        <div className="flex justify-end items-center gap-5 mt-20 mb-5">
+       
+
+      </Card>
+       <div className="flex justify-end items-center gap-5 mt-20 mb-5">
 
           <Button
             variant="default"
@@ -225,8 +227,6 @@ export default function Retentiaquiz() {
           </Button>
 
         </div>
-
-      </Card>
 
     </main>
   );

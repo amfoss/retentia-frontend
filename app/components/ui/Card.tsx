@@ -11,7 +11,7 @@ export default function Card({
 }: CardProps) {
   const base = "rounded-3xl p-6 ";
   const variants = {
-    primary: "bg-foreground text-text",
+    primary: "bg-foreground flex overflow-y-auto flex-col text-text",
     secondary: "bg-background/70 text-text",
   };
 

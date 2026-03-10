@@ -21,7 +21,7 @@ export default function Button({
       "flex items-center group text-lg sm:text-xl md:text-2xl px-2 sm:px-4 gap-2 sm:gap-4 py-2 font-semibold rounded-full hover:bg-primary-light",
 
     opt_btn:
-      "w-full text-lg sm:text-xl md:text-2xl font-bold rounded-3xl h-[80px] sm:h-[100px] md:h-[120px]  sm:py-6 md:py-8 px-4 sm:px-6 md:px-7 items-start text-left break-words bg-background/70 border-background flex  justify-center gap-5 border-2 hover:bg-background/30 hover:border-text/60 transition-colors overflow-y-auto",
+      "w-full text-lg sm:text-xl md:text-2xl font-bold rounded-3xl sm:py-6 md:py-8 px-4 sm:px-6 md:px-7 items-start text-left break-words bg-background/70 border-background flex  justify-center gap-5 border-2 hover:bg-background/30 hover:border-text/60 transition-colors overflow-y-auto",
   };
 
   return (

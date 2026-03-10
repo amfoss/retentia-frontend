@@ -75,7 +75,7 @@ export default function QuestionNavigation({
 
       <button
         onClick={handlePrev}
-        className="px-2 sm:px-3 md:px-4 py-1 sm:py-3 border rounded-md bg-background flex items-center gap-1 text-sm sm:text-base"
+        className="px-2 sm:px-3 md:px-4 py-1 sm:py-3 border-2 rounded-md bg-background flex items-center gap-1 text-sm sm:text-base"
       >
         <ChevronLeft size={16} />
         <span className="hidden sm:inline">Prev</span>
@@ -92,7 +92,7 @@ export default function QuestionNavigation({
             const isSkipped = skipped[qNumber];
 
             let colorClass =
-              "border-border text-text/70 hover:bg-surface";
+              "border-border text-text/70 ";
 
             if (isMarked) {
               colorClass = "bg-marked-for-review text-white";
@@ -112,7 +112,7 @@ export default function QuestionNavigation({
                 key={qNumber}
                 onClick={() => onQuestionChange?.(qNumber)}
                 className={`w-9 h-9 sm:w-10 sm:h-10 md:w-15 md:h-15
-                rounded-md border transition-all text-sm sm:text-base
+                rounded-md border-2 transition-all text-sm sm:text-base
                 ${colorClass}
                 ${isCurrent ? "ring-2 ring-secondary" : ""}`}
               >
@@ -129,7 +129,7 @@ export default function QuestionNavigation({
 
       <button
         onClick={handleNext}
-        className="px-2 sm:px-3 md:px-4 py-1 sm:py-3 border rounded-md bg-background flex items-center gap-1 text-sm sm:text-base"
+        className="px-2 sm:px-3 md:px-4 py-1 sm:py-3 border-2 rounded-md bg-background flex items-center gap-1 text-sm sm:text-base"
       >
         <span className="hidden sm:inline">Next</span>
         <ChevronRight size={16} />

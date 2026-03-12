@@ -12,6 +12,7 @@ export default function Retentiaquiz() {
 
   const totalQuestions = 50;
 
+  const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [answers, setAnswers] = useState<Record<number, string | null>>({});
   const [confirmedAnswers, setConfirmedAnswers] = useState<Record<number, boolean>>({});
@@ -21,11 +22,18 @@ export default function Retentiaquiz() {
   const answeredCount = Object.keys(confirmedAnswers).length;
 
   const options = [
-    { id: "A", text: "Solarpx-2 sm:px-3 md:px-4 py-1 sm:py-3 border-2 rounded-md bg-background flex items-center gap-1 text-sm sm:text-basepx-2 sm:px-3 md:px-4 py-1 sm:py-3 border-2 rounded-md bg-background flex items-center gap-1 text-sm sm:text-basepx-2 sm:px-3 md:px-4 py-1 sm:py-3 border-2 rounded-md bg-background flex items-center gap-1 text-sm sm:text-basepx-2 sm:px-3 md:px-4 py-1 sm:py-3 border-2 rounded-md bg-background flex items-center gap-1 text-sm sm:text-base" },
+    { id: "A", text: "Solar power" },
     { id: "B", text: "Wind Power" },
     { id: "C", text: "Natural Gas" },
     { id: "D", text: "Hydroelectric Power" },
   ];
+
+  const confirmSubmit = () => {
+    setShowSubmitModal(false);
+    
+    console.log("Quiz submitted successfully");
+
+  };
 
   const handleOptionClick = (optionId: string) => {
 
@@ -98,25 +106,16 @@ export default function Retentiaquiz() {
     });
 
   };
-
-
   const handleSubmit = () => {
-
-    const confirmSubmit = window.confirm(
-      "Are you sure you want to submit the quiz?"
-    );
-
-    if (confirmSubmit) {
-      alert("Quiz submitted successfully!");
-    }
-
-  };
+  setShowSubmitModal(true);
+};
 
   return (
 
-    <main className="min-h-screen flex flex-col justify-center bg-background py-10 px-80">
+    <main className="min-h-screen flex flex-col justify-center bg-background py-10
+    px-4 sm:px-10 md:px-20 lg:px-80">
 
-        <div className="grid grid-cols-3 items-center mt-3">
+        <div className="grid grid-cols-3 items-center mt-3 gap-4">
 
           <div></div>
 
@@ -124,7 +123,7 @@ export default function Retentiaquiz() {
             <Timer totalQuestions={totalQuestions} />
           </div>
 
-          <div className="flex justify-end">
+          <div className="flex justify-center sm:justify-end">
             <Button
               variant="default"
               className="bg-answered px-6 py-2 text-white"
@@ -151,23 +150,23 @@ export default function Retentiaquiz() {
           markedReview={markedReview}
           skipped={skipped}
         />
+
       <Card
         variant="primary"
-        className="w-full  max-h-212.5 px-10"
+        className="w-full max-h-212.5 px-4 sm:px-6 md:px-10"
       >
-
 
         <Card
           variant="secondary"
-          className="w-full mb-15 flex items-center justify-center "
+          className="w-full mb-15 flex items-center justify-center"
         >
-          <p className="text-3xl font-bold leading-relaxed p-15">
+          <p className="text-xl sm:text-2xl md:text-3xl font-bold leading-relaxed p-6 sm:p-10 md:p-15 text-center">
             Which of the following energy sources cannot be
-            replenished naturally on a human timescale,
+            replenished naturally on a human timescale?
           </p>
         </Card>
 
-        <div className="space-y-5 text-xl">
+        <div className="space-y-5 text-lg sm:text-xl">
 
           {options.map((option) => {
 
@@ -203,15 +202,14 @@ export default function Retentiaquiz() {
 
         </div>
 
-       
-
       </Card>
-       <div className="flex justify-end items-center gap-5 mt-20 mb-5">
+
+      <div className="flex flex-col sm:flex-row justify-end items-center gap-5 mt-20 mb-5">
 
           <Button
             variant="default"
             onClick={toggleReview}
-            className="bg-purple-600 text-white px-6 py-2 flex items-center gap-2"
+            className="bg-purple-600 text-white px-6 py-2 flex items-center gap-2 w-full sm:w-auto justify-center"
           >
             <Flag size={18} />
             Mark For Review
@@ -220,13 +218,47 @@ export default function Retentiaquiz() {
           <Button
             variant="default"
             onClick={handleNext}
-            className="bg-secondary px-6 py-2 flex text-white items-center gap-2"
+            className="bg-secondary px-6 py-2 flex text-white items-center gap-2 w-full sm:w-auto justify-center"
           >
             Next Question
             <ChevronRight size={18} />
           </Button>
 
         </div>
+        {showSubmitModal && (
+      <div className="fixed inset-0 bg-background flex items-center justify-center z-50">
+        <Card variant="primary" className="p-8 max-w-md w-full text-center">
+
+            <h2 className="text-xl font-bold mb-4">
+              Submit Quiz?
+            </h2>
+
+            <p className="text-text mb-6">
+              Are you sure you want to submit the quiz?
+            </p>
+
+            <div className="flex justify-center gap-4">
+
+            <Button
+              variant="default"
+              onClick={() => setShowSubmitModal(false)}
+            >
+              Cancel
+            </Button>
+
+            <Button
+              variant="default"
+              className="bg-answered text-text"
+              onClick={confirmSubmit}
+            >
+              Submit
+            </Button>
+
+          </div>
+
+        </Card>
+      </div>
+  )}
 
     </main>
   );

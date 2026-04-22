@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import Sidebar from "../Sidebar";
-import Card from "../ui/Card"
+import SearchBar from "../ui/Searchbar";
+import TestHistoryTable from "../ui/TestHistoryTable";
 
 type Subject = "Physics" | "Chemistry" | "Math";
 type FilterType = "All" | Subject;
 
-type Test = {
+export type Test = {
   id: string;
   name: string;
   subject: Subject;
@@ -56,143 +57,23 @@ const dummyTests: Test[] = [
   },
 ];
 
-const filters: FilterType[] = ["All", "Physics", "Chemistry", "Math"];
-
 export default function TestHistoryPage() {
-  const [search, setSearch] = useState<string>("");
+  const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<FilterType>("All");
-
-  const filteredTests = dummyTests.filter((test) => {
-    const matchesSearch = test.name
-      .toLowerCase()
-      .includes(search.toLowerCase());
-
-    const matchesFilter =
-      filter === "All" || test.subject === filter;
-
-    return matchesSearch && matchesFilter;
-  });
 
   return (
     <div className="min-h-screen bg-background flex text-text">
-      
-      <div >
-        <Sidebar />
-      </div>
+      <Sidebar />
 
       <div className="flex-1 p-10">
-         
-        <div className="w-full mb-10">
-          <input
-            type="text"
-            placeholder="Search"
-            className="w-full px-4 py-3 rounded-xl bg-foreground text-2xl "
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
+        <SearchBar search={search} setSearch={setSearch} />
 
-        <div className="w-full flex">
-
-          <Card variant="primary" className=" w-full">
-
-            <div className="flex justify-between items-center px-8 py-6">
-              <h2 className="text-3xl font-semibold ">
-                Recent Test Activity
-              </h2>
-
-              <div className="flex gap-2">
-                {filters.map((subj) => (
-                  <button
-                    key={subj}
-                    onClick={() => setFilter(subj)}
-                    className={`px-4 py-1.5 rounded-full text-xl transition ${
-                      filter === subj
-                        ? "bg-yellow-500 text-black"
-                        : "bg-gray-700 text-gray-300"
-                    }`}
-                  >
-                    {subj}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid items-center grid-cols-5 px-8 py-3 text-xl text-gray-500 uppercase">
-              <span>Test Name</span>
-              <span>Subject</span>
-              <span>Date</span>
-              <span>Score</span>
-              <span>Action</span>
-            </div>
-
-            <div>
-              {filteredTests.map((test) => {
-                
-                let scoreColor = "bg-green-400";
-                if (test.score < 70) scoreColor = "bg-orange-400";
-                if (test.score < 50) scoreColor = "bg-red-500";
-
-                const badgeStyles: Record<Subject, string> = {
-                  Physics:
-                    "text-blue-400 border border-blue-400/30 bg-blue-400/10",
-                  Chemistry:
-                    "text-orange-400 border border-orange-400/30 bg-orange-400/10",
-                  Math:
-                    "text-green-400 border border-green-400/30 bg-green-400/10",
-                };
-
-                return (
-                  <div
-                    key={test.id}
-                    className="grid grid-cols-5 items-center px-10 py-3 border-t border-[#2a2a2a]"
-                  >
-                    
-                    <div>
-                      <p className="text-xl text-test">
-                        {test.name}
-                      </p>
-                      <p className="text-xs text-gray-500">
-                        {test.questions} Questions • {test.duration} mins
-                      </p>
-                    </div>
-
-                    <span
-                      className={`text-xl px-3 py-1 rounded-full w-fit ${badgeStyles[test.subject]}`}
-                    >
-                      {test.subject}
-                    </span>
-
-                    <span className="text-xl text-gray-400">
-                      {test.date}
-                    </span>
-
-                    <div className="w-40">
-                      <div className="h-2 bg-background/20 rounded-full">
-                        <div
-                          className={`h-2 rounded-full ${scoreColor}`}
-                          style={{ width: `${test.score}%` }}
-                        />
-                      </div>
-                      <p className="text-xs mt-1 ">
-                        {test.score}%
-                      </p>
-                    </div>
-
-                   
-               <div className="flex justify-start">
-                <button className="text-primary text-sm md:text-lg hover:underline">
-                  Analyze →
-                </button>
-              </div>
-                 
-                  </div>
-                );
-              })}
-            </div>
-
-          </Card>
-        </div>
+        <TestHistoryTable
+          tests={dummyTests}
+          search={search}
+          filter={filter}
+          setFilter={setFilter}
+        />
       </div>
     </div>
   );

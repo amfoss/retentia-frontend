@@ -4,35 +4,47 @@
 @import "@fontsource/poppins/600.css";
 @import "@fontsource/poppins/700.css";
 
-
 :root {
-    --background: #000000;
-    --foreground: #2E2E2E;
-    --surface: #121212;
+  --background: #000000;
+  --foreground: #2e2e2e;
+  --surface: #121212;
 
-    --text: #FFFFFF;
+  --light-background: #181818;
+  --dark-foreground: #242424;
+  --dark-surface: #2a2a2a;
 
-    --primary: #E49B0F;
-    --primary-variant: #F4BB44;
-    --primary-light: #FFECB3;
+  --text: #ffffff;
+  --dark-text: #9ca3af;
 
-    --secondary: #1589EE;
-    --border: #D1D5DC;
+  --primary: #e49b0f;
+  --primary-variant: #f4bb44;
+  --primary-light: #ffecb3;
 
-    --answered: #22C55E;
-    --marked-for-review: #6B21A8;
-    --not-answered: #F97316;
-    --not-visited: #E5E7EB;
+  --secondary: #1589ee;
+  --border: #d1d5dc;
 
-    --chemistry: #D1FAE5;
-    --physics: #F9F7FF;
-    --timer: #EF4444;
+  --answered: #22c55e;
+  --marked-for-review: #6b21a8;
+  --not-answered: #f97316;
+  --not-visited: #e5e7eb;
+
+  --chemistry: #d1fae5;
+  --physics: #f9f7ff;
+  --timer: #ef4444;
+
+  --chemistry-icon: #66bb6a;
+  --physics-icon: #a78bfa;
+  --maths-icon: #60a5fa;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-light-background: var(--light-background);
+  --color-dark-foreground: var(--dark-foreground);
   --color-surface: var(--surface);
+  --color-dark-surface: var(--dark-surface);
+  --color-dark-text: var(--dark-text);
   --color-text: var(--text);
   --color-primary: var(--primary);
   --color-primary-variant: var(--primary-variant);
@@ -43,26 +55,27 @@
   --color-answered: var(--answered);
   --color-not-answered: var(--not-answered);
   --color-not-visited: var(--not-visited);
+  --color-physics-icon: var(--physics-icon);
+  --color-maths-icon: var(--maths-icon);
+  --color-chemistry-icon: var(--chemistry-icon);
+  --color-science-icon: var(--science-icon);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --background:#E5E7EB;
-    --foreground:#FFFFFF;
-    --text:#64748B;
+    --background: #e5e7eb;
+    --foreground: #ffffff;
+    --text: #64748b;
   }
 }
-
-
 
 body {
   background: var(--background);
   color: var(--text);
-  font-family: 'Poppins', Helvetica, sans-serif;
+  font-family: "Poppins", Helvetica, sans-serif;
 }
-
 
 ::-webkit-scrollbar-track {
   background: transparent;
@@ -72,17 +85,17 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6B7280;
+  background: #6b7280;
   border-radius: 999px;
   border: 3px solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9CA3AF;
+  background: #9ca3af;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #6B7280 transparent;
+  scrollbar-color: #6b7280 transparent;
 }

@@ -20,7 +20,6 @@ export default function QuestionNavigation({
   markedReview,
   skipped,
 }: QuestionNavigationProps) {
-
   const [startIndex, setStartIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(12);
 
@@ -54,9 +53,7 @@ export default function QuestionNavigation({
   const handlePrev = () => {
     if (isPrevDisabled) return;
 
-    setStartIndex((prev) =>
-      Math.max(prev - shiftAmount, 0)
-    );
+    setStartIndex((prev) => Math.max(prev - shiftAmount, 0));
   };
 
   const visibleQuestions = Array.from({ length: visibleCount })
@@ -65,7 +62,6 @@ export default function QuestionNavigation({
 
   return (
     <div className="flex items-center gap-2 sm:gap-4 mb-8 w-full">
-
       <button
         onClick={handlePrev}
         disabled={isPrevDisabled}
@@ -78,9 +74,7 @@ export default function QuestionNavigation({
 
       <div className="flex-1">
         <div className="flex gap-2 sm:gap-3 md:gap-5 justify-center flex-wrap">
-
           {visibleQuestions.map((qNumber) => {
-
             const isAnswered = confirmedAnswers[qNumber];
             const isMarked = markedReview[qNumber];
             const isSkipped = skipped[qNumber];
@@ -89,11 +83,9 @@ export default function QuestionNavigation({
 
             if (isMarked) {
               colorClass = "bg-marked-for-review text-white";
-            }
-            else if (isAnswered) {
+            } else if (isAnswered) {
               colorClass = "bg-answered text-white";
-            }
-            else if (isSkipped) {
+            } else if (isSkipped) {
               colorClass = "bg-not-answered text-white";
             }
 
@@ -112,7 +104,6 @@ export default function QuestionNavigation({
               </button>
             );
           })}
-
         </div>
       </div>
 
@@ -125,7 +116,6 @@ export default function QuestionNavigation({
         <span className="hidden sm:inline">Next</span>
         <ChevronRight size={16} />
       </button>
-
     </div>
   );
 }

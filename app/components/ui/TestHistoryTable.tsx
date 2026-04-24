@@ -24,8 +24,7 @@ export default function TestHistoryTable({
       .toLowerCase()
       .includes(search.toLowerCase());
 
-    const matchesFilter =
-      filter === "All" || test.subject === filter;
+    const matchesFilter = filter === "All" || test.subject === filter;
 
     return matchesSearch && matchesFilter;
   });
@@ -33,12 +32,9 @@ export default function TestHistoryTable({
   return (
     <div className="w-full flex">
       <Card variant="primary" className="w-full">
-
         {/* Header */}
         <div className="flex justify-between items-center px-8 py-6">
-          <h2 className="text-3xl font-semibold">
-            Recent Test Activity
-          </h2>
+          <h2 className="text-3xl font-semibold">Recent Test Activity</h2>
 
           <div className="flex gap-2">
             {filters.map((subj) => (
@@ -74,12 +70,10 @@ export default function TestHistoryTable({
             if (test.score < 50) scoreColor = "bg-red-500";
 
             const badgeStyles: Record<Subject, string> = {
-              Physics:
-                "text-blue-400 border border-blue-400/30 bg-blue-400/10",
+              Physics: "text-blue-400 border border-blue-400/30 bg-blue-400/10",
               Chemistry:
                 "text-orange-400 border border-orange-400/30 bg-orange-400/10",
-              Math:
-                "text-green-400 border border-green-400/30 bg-green-400/10",
+              Math: "text-green-400 border border-green-400/30 bg-green-400/10",
             };
 
             return (
@@ -100,9 +94,7 @@ export default function TestHistoryTable({
                   {test.subject}
                 </span>
 
-                <span className="text-xl text-gray-400">
-                  {test.date}
-                </span>
+                <span className="text-xl text-gray-400">{test.date}</span>
 
                 <div className="w-40">
                   <div className="h-2 bg-background/20 rounded-full">
@@ -111,9 +103,7 @@ export default function TestHistoryTable({
                       style={{ width: `${test.score}%` }}
                     />
                   </div>
-                  <p className="text-xs mt-1">
-                    {test.score}%
-                  </p>
+                  <p className="text-xs mt-1">{test.score}%</p>
                 </div>
 
                 <div>
@@ -125,7 +115,6 @@ export default function TestHistoryTable({
             );
           })}
         </div>
-
       </Card>
     </div>
   );

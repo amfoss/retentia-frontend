@@ -9,7 +9,6 @@ type TimerProps = {
 };
 
 export default function Timer({ totalQuestions, onTimeUp }: TimerProps) {
-
   const totalSeconds = totalQuestions * 60;
   const [timeLeft, setTimeLeft] = useState(totalSeconds);
 
@@ -20,7 +19,6 @@ export default function Timer({ totalQuestions, onTimeUp }: TimerProps) {
   }, [onTimeUp]);
 
   useEffect(() => {
-
     if (timeLeft <= 0) {
       onTimeUpRef.current?.();
       return;
@@ -31,15 +29,13 @@ export default function Timer({ totalQuestions, onTimeUp }: TimerProps) {
     }, 1000);
 
     return () => clearInterval(interval);
-
   }, [timeLeft]);
 
   const hours = Math.floor(timeLeft / 3600);
   const minutes = Math.floor((timeLeft % 3600) / 60);
   const seconds = timeLeft % 60;
 
-  const danger =
-    timeLeft <= 60 ? "text-text animate-pulse" : "text-timer";
+  const danger = timeLeft <= 60 ? "text-text animate-pulse" : "text-timer";
 
   return (
     <div
@@ -53,7 +49,6 @@ export default function Timer({ totalQuestions, onTimeUp }: TimerProps) {
 
       <span className="whitespace-nowrap">
         <span className="hidden sm:inline">Time Remaining: </span>
-
         {hours.toString().padStart(2, "0")}:
         {minutes.toString().padStart(2, "0")}:
         {seconds.toString().padStart(2, "0")}

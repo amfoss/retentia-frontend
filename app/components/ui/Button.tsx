@@ -1,6 +1,6 @@
 type ButtonProps = {
   children: React.ReactNode;
-  variant?: "default" | "sidebar_btn" | "opt_btn";
+  variant?: "default" | "sidebar_btn" | "opt_btn" | "proceed_btn";
   className?: string;
   onClick?: () => void;
 };
@@ -22,6 +22,9 @@ export default function Button({
 
     opt_btn:
       "w-full text-lg sm:text-xl md:text-2xl font-bold rounded-3xl sm:py-6 md:py-8 px-4 sm:px-6 md:px-7 items-start text-left break-words bg-background/70 border-background flex  justify-center gap-5 border-2 hover:bg-background/30 hover:border-text/60 transition-colors overflow-y-auto",
+
+    proceed_btn:
+      "bg-secondary hover:bg-primary-variant text-black px-10 py-3.5 rounded-full flex items-center gap-2 shadow-lg min-h-0 transition-colors",
   };
 
   return (

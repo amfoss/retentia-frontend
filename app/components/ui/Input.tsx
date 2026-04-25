@@ -1,24 +1,24 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  variant?: 'primary';
+  variant?: "primary" | "search";
 }
 
-const Input = ({ 
-  variant = 'primary', 
-  className = '', 
-  ...props 
-}: InputProps) => {  
+const Input = ({
+  variant = "primary",
+  className = "",
+  ...props
+}: InputProps) => {
   const variants = {
-    primary:"w-full px-4 py-1 border border-border rounded-lg focus:outline-none focus:ring-1 focus:ring-[#D1D5DB] focus:border-transparent",
+    primary:
+      "w-full px-4 py-1 border border-border rounded-lg focus:outline-none focus:ring-1 focus:ring-[#D1D5DB] focus:border-transparent",
+
+    search:
+      "bg-transparent outline-none text-sm flex-1 placeholder:text-gray-500",
   };
 
   return (
-    <input
-      className={`${variants[variant]} ${className}`}
-      {...props}
-    >
-    </input>
+    <input className={`${variants[variant]} ${className}`} {...props}></input>
   );
 };
 

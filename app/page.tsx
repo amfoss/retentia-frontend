@@ -1,4 +1,4 @@
-import Sidebar from "./components/pages/Retentiaquiz";
+import Sidebar from "./components/pages/TakeTest";
 
 export default function Home() {
   return (

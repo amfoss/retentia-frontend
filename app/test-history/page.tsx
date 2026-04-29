@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Sidebar from "../Sidebar";
-import SearchBar from "../ui/Searchbar";
-import TestHistoryTable from "../ui/TestHistoryTable";
+import Sidebar from "../components/Sidebar";
+import SearchBar from "../components/ui/Searchbar";
+import TestHistoryTable from "../components/ui/TestHistoryTable";
 
 type Subject = "Physics" | "Chemistry" | "Math";
 type FilterType = "All" | Subject;

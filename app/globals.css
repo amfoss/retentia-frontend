@@ -18,7 +18,7 @@
 
   --primary: #e49b0f;
   --primary-variant: #f4bb44;
-  --primary-light: #ffecb3;
+  --primary-light: #e49b0f80;
 
   --secondary: #1589ee;
   --border: #d1d5dc;
@@ -68,6 +68,7 @@
     --background: #e5e7eb;
     --foreground: #ffffff;
     --text: #64748b;
+    --primary-light: #ffecb3;
   }
 }
 

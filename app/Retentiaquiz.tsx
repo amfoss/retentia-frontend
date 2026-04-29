@@ -1,19 +1,19 @@
 "use client";
 
+import { ChevronRight, Flag } from "lucide-react";
 import { useState } from "react";
-import Card from "../ui/Card";
-import Button from "../ui/Button";
-import ProgressBar from "../ui/Progressbar";
-import Timer from "../ui/Timer";
-import QuestionNavigation from "../ui/QuestionNavigation";
-import { Flag, ChevronRight } from "lucide-react";
+import Button from "./components/ui/Button";
+import Card from "./components/ui/Card";
+import ProgressBar from "./components/ui/Progressbar";
+import QuestionNavigation from "./components/ui/QuestionNavigation";
+import Timer from "./components/ui/Timer";
 
 export default function Retentiaquiz() {
   const totalQuestions = 50;
 
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(1);
-  const [answers, setAnswers] = useState<Record<number, string | null>>({});
+  const [ansSidebarwers, setAnswers] = useState<Record<number, string | null>>({});
   const [confirmedAnswers, setConfirmedAnswers] = useState<
     Record<number, boolean>
   >({});

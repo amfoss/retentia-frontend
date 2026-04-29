@@ -1,10 +1,10 @@
 "use client";
 
+import { Beaker, Calculator, Search, Zap } from "lucide-react";
 import { useState } from "react";
-import SelectChapterCard from "../ui/SelectConcepts";
-import { Search, Calculator, Zap, Beaker } from "lucide-react";
-import Sidebar from "../Sidebar";
-import Button from "../ui/Button";
+import Sidebar from "../components/Sidebar";
+import Button from "../components/ui/Button";
+import SelectChapterCard from "../components/ui/SelectConcepts";
 
 type Chapter = {
   name: string;
@@ -30,51 +30,47 @@ export default function TakeTest() {
   }
 
   return (
-    <div className="flex bg-surface text-text">
+    <div className="flex bg-background text-text h-screen overflow-hidden">
       <Sidebar />
 
-      <main className="flex-1 flex flex-col px-4 py-6 overflow-hidden">
-        <div className="w-full flex flex-col">
-          <div className="mb-4 flex justify-center">
-            <div className="w-full flex items-center gap-3 bg-foreground rounded-lg px-6 py-3.5">
-              <Search className="w-5 h-5 text-border" />
-              <input
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search"
-                className="bg-transparent outline-none text-sm flex-1 text-text placeholder:text-text"
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3 gap-6 w-full mt-2">
-            <SelectChapterCard
-              subjectName="Mathematics"
-              topics={mathematicsTopics}
-              icon={<Calculator size={18} className="text-maths-icon" />}
-              onSelectionChange={setMathSelected}
-              search={search}
-            />
-
-            <SelectChapterCard
-              subjectName="Physics"
-              topics={physicsTopics}
-              icon={<Zap size={18} className="text-physics-icon" />}
-              onSelectionChange={setPhysicsSelected}
-              search={search}
-            />
-
-            <SelectChapterCard
-              subjectName="Chemistry"
-              topics={chemistryTopics}
-              icon={<Beaker size={18} className="text-chemistry-icon" />}
-              onSelectionChange={setChemSelected}
-              search={search}
-            />
-          </div>
+      <main className="flex-1 flex flex-col px-4 pt-5">
+        <div className="mb-3 flex items-center gap-3 bg-foreground rounded-lg px-4 py-2.5">
+          <Search className="w-4 h-4 text-border shrink-0" />
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search"
+            className="bg-transparent outline-none text-sm flex-1 text-text placeholder:text-text"
+          />
         </div>
 
-        <div className="absolute bottom-6 right-6">
+        <div className="grid grid-cols-3 gap-4 overflow-hidden">
+          <SelectChapterCard
+            subjectName="Mathematics"
+            topics={mathematicsTopics}
+            icon={<Calculator size={18} className="text-maths-icon" />}
+            onSelectionChange={setMathSelected}
+            search={search}
+          />
+
+          <SelectChapterCard
+            subjectName="Physics"
+            topics={physicsTopics}
+            icon={<Zap size={18} className="text-physics-icon" />}
+            onSelectionChange={setPhysicsSelected}
+            search={search}
+          />
+
+          <SelectChapterCard
+            subjectName="Chemistry"
+            topics={chemistryTopics}
+            icon={<Beaker size={18} className="text-chemistry-icon" />}
+            onSelectionChange={setChemSelected}
+            search={search}
+          />
+        </div>
+
+        <div className="flex justify-end mt-4 mb-3">
           <Button variant="proceed_btn" onClick={initQuiz}>
             Proceed
           </Button>
@@ -158,11 +154,7 @@ const physicsTopics: Topic[] = [
       {
         name: "Optics",
         concepts: ["Ray Optics", "Wave Optics", "Interference"],
-      },
-      {
-        name: "Waves",
-        concepts: ["Wave Motion", "Sound Waves", "Doppler Effect"],
-      },
+      }
     ],
   },
 ];
@@ -193,14 +185,6 @@ const chemistryTopics: Topic[] = [
       {
         name: "Physical Chemistry",
         concepts: ["Atomic Structure", "States of Matter", "Electrochemistry"],
-      },
-      {
-        name: "Equilibrium",
-        concepts: [
-          "Chemical Equilibrium",
-          "Le Chatelier's Principle",
-          "Ionic Equilibrium",
-        ],
       },
       {
         name: "Inorganic Chemistry",

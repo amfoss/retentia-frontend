@@ -1,4 +1,4 @@
-import Sidebar from "./components/pages/TakeTest";
+import Sidebar from "./components/pages/Dashboard";
 
 export default function Home() {
   return (

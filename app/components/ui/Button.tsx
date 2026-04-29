@@ -11,20 +11,20 @@ export default function Button({
   className = "",
   onClick,
 }: ButtonProps) {
-  const base = "cursor-pointer min-h-[48px]";
+  const base = "cursor-pointer";
 
   const variants = {
     default:
       "flex p-2 sm:p-3 md:p-4 rounded-2xl items-center text-text text-base sm:text-lg md:text-xl",
 
     sidebar_btn:
-      "flex items-center group text-lg sm:text-xl md:text-2xl px-2 sm:px-4 gap-2 sm:gap-4 py-2 font-semibold rounded-full hover:bg-primary-light",
+      "flex items-center group text-xl md:text-2xl px-4 gap-3 py-2 font-semibold rounded-full",
 
     opt_btn:
       "w-full text-lg sm:text-xl md:text-2xl font-bold rounded-3xl sm:py-6 md:py-8 px-4 sm:px-6 md:px-7 items-start text-left break-words bg-background/70 border-background flex  justify-center gap-5 border-2 hover:bg-background/30 hover:border-text/60 transition-colors overflow-y-auto",
 
     proceed_btn:
-      "bg-secondary hover:bg-primary-variant text-black px-10 py-3.5 rounded-full flex items-center gap-2 shadow-lg min-h-0 transition-colors",
+      "bg-primary hover:bg-primary-variant text-black px-4 mr-2 py-2 rounded-2xl",
   };
 
   return (

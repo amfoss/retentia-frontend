@@ -1,22 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Sidebar from "../Sidebar";
-import SearchBar from "../ui/Searchbar";
-import TestHistoryTable from "../ui/TestHistoryTable";
+import Sidebar from "../components/Sidebar";
+import SearchBar from "../components/ui/Searchbar";
+import TestHistoryTable, { Test } from "../components/ui/TestHistoryTable";
 
 type Subject = "Physics" | "Chemistry" | "Math";
 type FilterType = "All" | Subject;
-
-export type Test = {
-  id: string;
-  name: string;
-  subject: Subject;
-  date: string;
-  score: number;
-  questions: number;
-  duration: number;
-};
 
 const dummyTests: Test[] = [
   {

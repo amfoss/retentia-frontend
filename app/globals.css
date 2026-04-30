@@ -22,6 +22,8 @@
 
   --secondary: #1589ee;
   --border: #d1d5dc;
+  --muted: #4B5563;
+  --muted-text: #9CA3AF;
 
   --answered: #22c55e;
   --marked-for-review: #6b21a8;
@@ -51,6 +53,8 @@
   --color-primary-light: var(--primary-light);
   --color-secondary: var(--secondary);
   --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-text: var(--muted-text);
   --color-marked-for-review: var(--marked-for-review);
   --color-answered: var(--answered);
   --color-not-answered: var(--not-answered);

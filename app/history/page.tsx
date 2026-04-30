@@ -3,20 +3,10 @@
 import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import SearchBar from "../components/ui/Searchbar";
-import TestHistoryTable from "../components/ui/TestHistoryTable";
+import TestHistoryTable, { Test } from "../components/ui/TestHistoryTable";
 
 type Subject = "Physics" | "Chemistry" | "Math";
 type FilterType = "All" | Subject;
-
-export type Test = {
-  id: string;
-  name: string;
-  subject: Subject;
-  date: string;
-  score: number;
-  questions: number;
-  duration: number;
-};
 
 const dummyTests: Test[] = [
   {

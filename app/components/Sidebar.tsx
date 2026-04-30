@@ -21,7 +21,7 @@ type Menu = {
 const menu: Menu[] = [
   { label: "Dashboard", icon: LayoutDashboard, path: "/" },
   { label: "Take Test", icon: ClipboardList, path: "/take-test" },
-  { label: "Test History", icon: History, path: "/test-history" },
+  { label: "History", icon: History, path: "/history" },
   { label: "Revise", icon: CalendarClock, path: "/upcoming-test" },
 ];
 
@@ -29,7 +29,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-52 bg-foreground px-2 py-6 flex flex-col rounded-tr-xl rounded-br-xl">
+    <aside className="w-48 bg-foreground pl-3 py-6 flex flex-col rounded-tr-xl rounded-br-xl">
       {/* Logo */}
       <div className="flex items-center gap-3 px-8 mb-24 text-xl pb-12 border-b border-text/50">
         <Image src="/logo.png" alt="logo" width={48} height={48} />

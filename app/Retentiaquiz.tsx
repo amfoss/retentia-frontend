@@ -13,7 +13,7 @@ export default function Retentiaquiz() {
 
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(1);
-  const [ansSidebarwers, setAnswers] = useState<Record<number, string | null>>({});
+  const [answers, setAnswers] = useState<Record<number, string | null>>({});
   const [confirmedAnswers, setConfirmedAnswers] = useState<
     Record<number, boolean>
   >({});

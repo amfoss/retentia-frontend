@@ -133,13 +133,13 @@ export default function SelectChapterCard({
   }
 
   return (
-    <div className="w-full h-[75vh] bg-foreground rounded-[28px] p-6 flex flex-col shadow-xl">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="bg-foreground p-2 rounded-lg">{icon}</div>
-        <h2 className="font-semibold text-white">{subjectName}</h2>
+    <div className="w-full bg-foreground rounded-2xl p-4 flex flex-col shadow-xl overflow-y-auto">
+      <div className="flex items-center gap-2 mb-3">
+        <div className="bg-foreground p-1.5 rounded-md">{icon}</div>
+        <h2 className="text-sm font-semibold text-white">{subjectName}</h2>
       </div>
 
-      <div className="flex-1 overflow-y-auto no-scrollbar flex flex-col gap-4 pr-2">
+      <div className="flex-1 flex overflow-y-auto flex-col gap-2 pr-1">
         {subjectCards}
       </div>
     </div>

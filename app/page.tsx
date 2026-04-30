@@ -1,9 +1,5 @@
-import Sidebar from "./components/pages/TakeTest";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <main>
-      <Sidebar />
-    </main>
-  );
+  redirect("/dashboard");
 }

@@ -1,8 +1,16 @@
 import Card from "../ui/Card";
-import { Test } from "../pages/Test_history";
 
 type Subject = "Physics" | "Chemistry" | "Math";
 type FilterType = "All" | Subject;
+export type Test = {
+  id: string;
+  name: string;
+  subject: Subject;
+  date: string;
+  score: number;
+  questions: number;
+  duration: number;
+};
 
 type Props = {
   tests: Test[];
@@ -30,21 +38,20 @@ export default function TestHistoryTable({
   });
 
   return (
-    <div className="w-full flex">
       <Card variant="primary" className="w-full">
         {/* Header */}
         <div className="flex justify-between items-center px-8 py-6">
-          <h2 className="text-3xl font-semibold">Recent Test Activity</h2>
+          <h2 className="text-lg font-semibold">Recent Test Activity</h2>
 
           <div className="flex gap-2">
             {filters.map((subj) => (
               <button
                 key={subj}
                 onClick={() => setFilter(subj)}
-                className={`px-4 py-1.5 rounded-full text-xl transition ${
+                className={`px-3 py-1 rounded-full text-text text-s transition ${
                   filter === subj
-                    ? "bg-yellow-500 text-black"
-                    : "bg-gray-700 text-gray-300"
+                    ? "bg-yellow-500"
+                    : "bg-muted-text"
                 }`}
               >
                 {subj}
@@ -54,8 +61,8 @@ export default function TestHistoryTable({
         </div>
 
         {/* Table Head */}
-        <div className="grid grid-cols-5 px-8 py-3 text-xl text-gray-500 uppercase">
-          <span>Test Name</span>
+        <div className="grid grid-cols-6 px-8 py-4 text-s text-muted-text font-semibold bg-muted/40 uppercase">
+          <span className="col-span-2">Test Name</span>
           <span>Subject</span>
           <span>Date</span>
           <span>Score</span>
@@ -79,9 +86,9 @@ export default function TestHistoryTable({
             return (
               <div
                 key={test.id}
-                className="grid grid-cols-5 items-center px-10 py-3 border-t border-[#2a2a2a]"
+                className="grid grid-cols-6 items-center px-8 py-5 border-t border-[#2a2a2a]"
               >
-                <div>
+                <div className="col-span-2">
                   <p className="text-xl">{test.name}</p>
                   <p className="text-xs text-gray-500">
                     {test.questions} Questions • {test.duration} mins
@@ -89,21 +96,21 @@ export default function TestHistoryTable({
                 </div>
 
                 <span
-                  className={`text-xl px-3 py-1 rounded-full w-fit ${badgeStyles[test.subject]}`}
+                  className={`text-xs px-2 py-0.5 rounded-full w-fit ${badgeStyles[test.subject]}`}
                 >
                   {test.subject}
                 </span>
 
-                <span className="text-xl text-gray-400">{test.date}</span>
+                <span className="text-xs text-gray-400">{test.date}</span>
 
-                <div className="w-40">
-                  <div className="h-2 bg-background/20 rounded-full">
+                <div className="w-24">
+                  <div className="h-1.5 bg-background/20 rounded-full">
                     <div
-                      className={`h-2 rounded-full ${scoreColor}`}
+                      className={`h-1.5 rounded-full ${scoreColor}`}
                       style={{ width: `${test.score}%` }}
                     />
                   </div>
-                  <p className="text-xs mt-1">{test.score}%</p>
+                  <p className="text-xs mt-0.5">{test.score}%</p>
                 </div>
 
                 <div>
@@ -116,6 +123,5 @@ export default function TestHistoryTable({
           })}
         </div>
       </Card>
-    </div>
   );
 }

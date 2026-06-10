@@ -1,11 +1,7 @@
 "use client";
 
 import { ChevronRight } from "lucide-react";
-
-type Chapter = {
-  name: string;
-  concepts: string[];
-};
+import type { Chapter } from "@/app/types";
 
 type Props = {
   chapter: Chapter;
@@ -17,7 +13,7 @@ type Props = {
   selected: Record<string, Record<string, boolean>>;
 };
 
-export default function Chapter({
+export default function ChapterCard({
   chapter,
   isExpanded,
   isChapterSelected,
@@ -63,14 +59,14 @@ export default function Chapter({
 
           {chapter.concepts.map((concept) => (
             <div
-              key={concept}
-              onClick={() => toggleConcept(chapter.name, concept)}
+              key={concept.name}
+              onClick={() => toggleConcept(chapter.name, concept.name)}
               className="flex items-center justify-between text-sm cursor-pointer"
             >
-              <span className="text-dark-text hover:text-text">{concept}</span>
+              <span className="text-dark-text hover:text-text">{concept.name}</span>
               <input
                 type="checkbox"
-                checked={selected[chapter.name]?.[concept]}
+                checked={selected[chapter.name]?.[concept.name]}
                 readOnly
                 className="secondary w-4 h-4 cursor-pointer"
               />

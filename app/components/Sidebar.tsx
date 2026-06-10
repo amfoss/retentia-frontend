@@ -22,7 +22,7 @@ const menu: Menu[] = [
   { label: "Dashboard", icon: LayoutDashboard, path: "/" },
   { label: "Take Test", icon: ClipboardList, path: "/take-test" },
   { label: "History", icon: History, path: "/history" },
-  { label: "Revise", icon: CalendarClock, path: "/upcoming-test" },
+  { label: "Revise", icon: CalendarClock, path: "/revise" },
 ];
 
 export default function Sidebar() {

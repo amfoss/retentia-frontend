@@ -7,6 +7,7 @@ import Button from "@/app/components/ui/Button";
 import SelectChapterCard from "@/app/components/ui/SelectConcepts";
 import { Subject } from "@/app/types"
 import { fetchSyllabus, subjectIconColors, subjectIcons } from "@/app/take-test/lib";
+import { useRouter } from "next/navigation";
 
 export default function TakeTest() {
   const [search, setSearch] = useState("");
@@ -14,7 +15,7 @@ export default function TakeTest() {
   const [physicsSelected, setPhysicsSelected] = useState<string[]>([]);
   const [chemSelected, setChemSelected] = useState<string[]>([]);
   const [subjects, setSubjects] = useState<Subject[]>([]);
-
+  const router = useRouter();
   const selectionHandlers: Record<
     string,
     React.Dispatch<React.SetStateAction<string[]>>
@@ -29,7 +30,9 @@ export default function TakeTest() {
       Mathematics: mathSelected,
       Physics: physicsSelected,
       Chemistry: chemSelected,
+      
     });
+    router.push("/Retentiaquiz")
   }
 
   useEffect(() => {
